@@ -30,7 +30,7 @@ nf-core/rnaseq (Salmon) 결과물을 입력으로 받아 **DESeq2 차등 발현 
 Salmon 정량 결과(TSV)를 로드하여 DESeq2 차등 발현 분석을 수행합니다.
 
 - **조건 분류:** 샘플명에 `Control` 포함 여부로 Control / Treated 자동 분류
-- **Pre-filtering:** 최소 3개 샘플에서 count ≥ 10인 유전자만 유지 ([DESeq2 매뉴얼 권장 기준](https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html))
+- **Pre-filtering:** 가장 작은 크기의(n개) 샘플을 기준으로 n개 이상 샘플에서 발견되고 count ≥ 10인 유전자만 유지 ([DESeq2 매뉴얼 권장 기준](https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html))
 - **출력:** `DESeq2_results.csv` (padj 오름차순 정렬, EnsemblID 기반)
 
 ### 2. `DESeq2_GeneName.R` — Gene Name 포함 차등 발현 분석
