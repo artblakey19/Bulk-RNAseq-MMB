@@ -36,10 +36,11 @@ dds <- DESeqDataSetFromMatrix(countData = counts_data,
                               colData = col_data,
                               design = ~ condition)
 # Pre-filtering
-# 최소 3개(가장 작은 그룹 크기) 이상의 샘플에서 10 이상의 count를 가진 유전자만 유지
+# 최소 smallestGroupSize 이상의 샘플에서 10 이상의 count를 가진 유전자만 유지
 # 해당 기준은 DESeq2 매뉴얼 문서를 근거로 함
 # https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
-smallestGroupSize <- 3
+# smallestGroupSize는 실제 그룹 크기 중 가장 작은 값으로 자동 계산
+smallestGroupSize <- min(table(col_data$condition))
 keep <- rowSums(counts(dds) >= 10) >= smallestGroupSize
 dds <- dds[keep,]
 
