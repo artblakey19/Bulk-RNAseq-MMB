@@ -39,7 +39,8 @@ collections <- tibble::tribble(
   "C2-CP-PID",            "C2",      "CP:PID",
   "C2-CP-Reactome",       "C2",      "CP:REACTOME",
   "C2-CP-KEGG_LEGACY",    "C2",      "CP:KEGG_LEGACY",
-  "C5-GO-BP",             "C5",      "GO:BP"
+  "C5-GO-BP",             "C5",      "GO:BP",
+  "C6-Oncogenic",         "C6",      NA
 )
 
 get_pathways <- function(collection, subcollection) {
